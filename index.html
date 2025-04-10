@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Digibooth by JM </title>
+  <title>Digibooth by JM</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Fredoka+One&display=swap" rel="stylesheet">
@@ -43,7 +43,7 @@
       padding: 30px;
       border-radius: 30px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      max-width: 450px;
+      max-width: 600px;
       width: 100%;
       text-align: center;
       transition: 0.3s ease;
@@ -133,6 +133,14 @@
       display: block;
     }
 
+    .strip-preview {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
     .strip-container {
       display: flex;
       flex-direction: column;
@@ -214,10 +222,10 @@
     </div>
 
     <div id="finalStripPreview" class="hidden">
-      <h3>Your Photo Strip:</h3>
-      <div id="stripContainer">
+      <h3>Your Photo Strips:</h3>
+      <div id="stripContainer" class="strip-preview">
       </div>
-      <a id="downloadStripLink" class="download-strip-btn hidden" download="photo_strip.png">Download Photo Strip</a>
+      <a id="downloadStripLink" class="download-strip-btn hidden" download="photo_strip.png">Download Photo Strips</a>
     </div>
 
     <audio id="captureSound" src="camera-shutter-click-01.wav" preload="auto"></audio>
@@ -325,8 +333,6 @@
       canvas.width = video.videoWidth;
       canvas.height = video.videoHeight;
       const ctx = canvas.getContext('2d');
-      ctx.translate(canvas.width, 0);
-      ctx.scale(-1, 1);
       ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
       const imageUrl = canvas.toDataURL();
       capturedPhotos.push(imageUrl);
